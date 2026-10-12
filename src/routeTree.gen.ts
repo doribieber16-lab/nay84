@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CartaRouteImport } from './routes/carta'
+import { Route as ContactosRouteImport } from './routes/contactos'
+import { Route as ExperienciaRouteImport } from './routes/experiencia'
+import { Route as HistoriaRouteImport } from './routes/historia'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as ReservarRouteImport } from './routes/reservar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CartaRoute = CartaRouteImport.update({
+  id: '/carta',
+  path: '/carta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactosRoute = ContactosRouteImport.update({
+  id: '/contactos',
+  path: '/contactos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExperienciaRoute = ExperienciaRouteImport.update({
+  id: '/experiencia',
+  path: '/experiencia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoriaRoute = HistoriaRouteImport.update({
+  id: '/historia',
+  path: '/historia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReservarRoute = ReservarRouteImport.update({
+  id: '/reservar',
+  path: '/reservar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/carta': typeof CartaRoute
+  '/contactos': typeof ContactosRoute
+  '/experiencia': typeof ExperienciaRoute
+  '/historia': typeof HistoriaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/reservar': typeof ReservarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/carta': typeof CartaRoute
+  '/contactos': typeof ContactosRoute
+  '/experiencia': typeof ExperienciaRoute
+  '/historia': typeof HistoriaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/reservar': typeof ReservarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/carta': typeof CartaRoute
+  '/contactos': typeof ContactosRoute
+  '/experiencia': typeof ExperienciaRoute
+  '/historia': typeof HistoriaRoute
+  '/privacidade': typeof PrivacidadeRoute
+  '/reservar': typeof ReservarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/carta'
+    | '/contactos'
+    | '/experiencia'
+    | '/historia'
+    | '/privacidade'
+    | '/reservar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/carta'
+    | '/contactos'
+    | '/experiencia'
+    | '/historia'
+    | '/privacidade'
+    | '/reservar'
+  id:
+    | '__root__'
+    | '/'
+    | '/carta'
+    | '/contactos'
+    | '/experiencia'
+    | '/historia'
+    | '/privacidade'
+    | '/reservar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CartaRoute: typeof CartaRoute
+  ContactosRoute: typeof ContactosRoute
+  ExperienciaRoute: typeof ExperienciaRoute
+  HistoriaRoute: typeof HistoriaRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
+  ReservarRoute: typeof ReservarRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carta': {
+      id: '/carta'
+      path: '/carta'
+      fullPath: '/carta'
+      preLoaderRoute: typeof CartaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contactos': {
+      id: '/contactos'
+      path: '/contactos'
+      fullPath: '/contactos'
+      preLoaderRoute: typeof ContactosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/experiencia': {
+      id: '/experiencia'
+      path: '/experiencia'
+      fullPath: '/experiencia'
+      preLoaderRoute: typeof ExperienciaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/historia': {
+      id: '/historia'
+      path: '/historia'
+      fullPath: '/historia'
+      preLoaderRoute: typeof HistoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reservar': {
+      id: '/reservar'
+      path: '/reservar'
+      fullPath: '/reservar'
+      preLoaderRoute: typeof ReservarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CartaRoute: CartaRoute,
+  ContactosRoute: ContactosRoute,
+  ExperienciaRoute: ExperienciaRoute,
+  HistoriaRoute: HistoriaRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
+  ReservarRoute: ReservarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
