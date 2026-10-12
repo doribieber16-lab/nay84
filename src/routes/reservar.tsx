@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, Pending } from "@/components/site/PageHero";
 import { pageHead, SITE } from "@/lib/site";
 
-type Search = { date?: string; time?: string; people?: string };
+type Search = { date?: string | undefined; time?: string | undefined; people?: string | undefined };
 
 export const Route = createFileRoute("/reservar")({
   validateSearch: (s: Record<string, unknown>): Search => ({
