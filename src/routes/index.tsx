@@ -57,7 +57,7 @@ function Index() {
           <Reveal className="md:col-span-6 md:col-start-7 lg:col-span-6 lg:col-start-7" delay={150}>
             <div className="img-zoom relative">
               <img src={intro} alt="Mãos a temperar um prato tradicional" width={1024} height={1280} loading="lazy" className="aspect-[4/5] w-full object-cover" />
-              <span className="absolute -bottom-6 -left-6 hidden bg-crimson px-6 py-4 font-display text-2xl italic text-ivory md:block">desde 1984</span>
+              <span className="absolute -bottom-6 -left-6 hidden bg-crimson px-6 py-4 font-display text-2xl italic text-ivory md:block">Nay · 84</span>
             </div>
           </Reveal>
         </div>
