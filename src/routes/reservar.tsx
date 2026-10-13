@@ -91,7 +91,7 @@ function Reservar() {
         </PageHero>
         <section className="pb-32"><div className="container-editorial flex flex-wrap gap-4">
           <Link to="/" className="btn-primary">Voltar ao início</Link>
-          <Link to="/carta" className="btn-ghost">Ver a carta</Link>
+          <Link to="/menu" className="btn-ghost">Ver o menu</Link>
         </div></section>
       </>
     );
