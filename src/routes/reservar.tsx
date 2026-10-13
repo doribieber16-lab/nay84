@@ -10,7 +10,7 @@ export const Route = createFileRoute("/reservar")({
   validateSearch: (s: Record<string, unknown>): Search => ({
     date: typeof s["date"] === "string" ? s["date"] : undefined,
     time: typeof s["time"] === "string" ? s["time"] : undefined,
-    people: typeof s["people"] === "string" ? s["people"] : undefined,
+    people: s["people"] != null ? String(s["people"]) : undefined,
   }),
   head: () => pageHead("Reservar Mesa — NAY84", "Reserve a sua mesa no NAY84, restaurante africano na Amadora. Consulte a disponibilidade em tempo real."),
   component: Reservar,
