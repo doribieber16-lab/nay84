@@ -14,6 +14,7 @@ import { Route as CartaRouteImport } from './routes/carta'
 import { Route as ContactosRouteImport } from './routes/contactos'
 import { Route as ExperienciaRouteImport } from './routes/experiencia'
 import { Route as HistoriaRouteImport } from './routes/historia'
+import { Route as MenuRouteImport } from './routes/menu'
 import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as ReservarRouteImport } from './routes/reservar'
 
@@ -42,6 +43,11 @@ const HistoriaRoute = HistoriaRouteImport.update({
   path: '/historia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MenuRoute = MenuRouteImport.update({
+  id: '/menu',
+  path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrivacidadeRoute = PrivacidadeRouteImport.update({
   id: '/privacidade',
   path: '/privacidade',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/contactos': typeof ContactosRoute
   '/experiencia': typeof ExperienciaRoute
   '/historia': typeof HistoriaRoute
+  '/menu': typeof MenuRoute
   '/privacidade': typeof PrivacidadeRoute
   '/reservar': typeof ReservarRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/contactos': typeof ContactosRoute
   '/experiencia': typeof ExperienciaRoute
   '/historia': typeof HistoriaRoute
+  '/menu': typeof MenuRoute
   '/privacidade': typeof PrivacidadeRoute
   '/reservar': typeof ReservarRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/contactos': typeof ContactosRoute
   '/experiencia': typeof ExperienciaRoute
   '/historia': typeof HistoriaRoute
+  '/menu': typeof MenuRoute
   '/privacidade': typeof PrivacidadeRoute
   '/reservar': typeof ReservarRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/contactos'
     | '/experiencia'
     | '/historia'
+    | '/menu'
     | '/privacidade'
     | '/reservar'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/contactos'
     | '/experiencia'
     | '/historia'
+    | '/menu'
     | '/privacidade'
     | '/reservar'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/contactos'
     | '/experiencia'
     | '/historia'
+    | '/menu'
     | '/privacidade'
     | '/reservar'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ContactosRoute: typeof ContactosRoute
   ExperienciaRoute: typeof ExperienciaRoute
   HistoriaRoute: typeof HistoriaRoute
+  MenuRoute: typeof MenuRoute
   PrivacidadeRoute: typeof PrivacidadeRoute
   ReservarRoute: typeof ReservarRoute
 }
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HistoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/menu': {
+      id: '/menu'
+      path: '/menu'
+      fullPath: '/menu'
+      preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/privacidade': {
       id: '/privacidade'
       path: '/privacidade'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactosRoute: ContactosRoute,
   ExperienciaRoute: ExperienciaRoute,
   HistoriaRoute: HistoriaRoute,
+  MenuRoute: MenuRoute,
   PrivacidadeRoute: PrivacidadeRoute,
   ReservarRoute: ReservarRoute,
 }

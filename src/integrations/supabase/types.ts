@@ -44,16 +44,19 @@ export type Database = {
       menu_categories: {
         Row: {
           id: string
+          is_demo: boolean
           name: string
           position: number
         }
         Insert: {
           id?: string
+          is_demo?: boolean
           name: string
           position?: number
         }
         Update: {
           id?: string
+          is_demo?: boolean
           name?: string
           position?: number
         }
@@ -64,10 +67,14 @@ export type Database = {
           allergens: string[]
           category_id: string
           description: string | null
+          feature_image_url: string | null
           id: string
           image_url: string | null
           is_available: boolean
+          is_demo: boolean
           is_special: boolean
+          is_spicy: boolean | null
+          is_vegetarian: boolean | null
           name: string
           position: number
           price_cents: number | null
@@ -76,10 +83,14 @@ export type Database = {
           allergens?: string[]
           category_id: string
           description?: string | null
+          feature_image_url?: string | null
           id?: string
           image_url?: string | null
           is_available?: boolean
+          is_demo?: boolean
           is_special?: boolean
+          is_spicy?: boolean | null
+          is_vegetarian?: boolean | null
           name: string
           position?: number
           price_cents?: number | null
@@ -88,10 +99,14 @@ export type Database = {
           allergens?: string[]
           category_id?: string
           description?: string | null
+          feature_image_url?: string | null
           id?: string
           image_url?: string | null
           is_available?: boolean
+          is_demo?: boolean
           is_special?: boolean
+          is_spicy?: boolean | null
+          is_vegetarian?: boolean | null
           name?: string
           position?: number
           price_cents?: number | null

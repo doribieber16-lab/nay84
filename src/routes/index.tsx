@@ -34,7 +34,7 @@ function Index() {
           </p>
           <div className="animate-rise mt-10 flex flex-wrap gap-4" style={{ animationDelay: "450ms" }}>
             <Link to="/reservar" className="btn-primary">Reservar mesa</Link>
-            <Link to="/carta" className="btn-ghost">Explorar a carta</Link>
+            <Link to="/menu" className="btn-ghost">Explorar o menu</Link>
           </div>
         </div>
         <div className="absolute bottom-8 right-8 hidden flex-col items-center gap-3 md:flex" aria-hidden>
@@ -71,7 +71,7 @@ function Index() {
               <p className="eyebrow">Da nossa cozinha</p>
               <h2 className="mt-6 max-w-2xl text-5xl leading-[1.05] md:text-6xl">Sabores que contam histórias.</h2>
             </div>
-            <Link to="/carta" className="btn-ghost self-start md:self-auto">Ver carta completa</Link>
+            <Link to="/menu" className="btn-ghost self-start md:self-auto">Ver o menu completo</Link>
           </Reveal>
           <div className="mt-16 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
             {[1, 2, 3, 4].map((n, i) => (
@@ -79,7 +79,7 @@ function Index() {
                 <article className="group flex h-full flex-col p-8">
                   <span className="font-display text-6xl text-copper/40 transition-colors duration-700 group-hover:text-copper">0{n}</span>
                   <h3 className="mt-16 text-3xl">Prato em destaque</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Nome, descrição e fotografia a preencher com a carta oficial do NAY84.</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Nome, descrição e fotografia a preencher com o menu oficial do NAY84.</p>
                 </article>
               </Reveal>
             ))}
