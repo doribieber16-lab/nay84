@@ -223,7 +223,7 @@ function DishModal({ item, category, onClose }: { item: Item | null; category: s
             <p><span className="text-muted-foreground">Ingredientes e alergénios: </span>{item.allergens.length ? item.allergens.join(", ") : "informação a confirmar com o restaurante."}</p>
             {item.is_demo && <p className="text-xs text-muted-foreground">Prato e fotografia ilustrativos (versão de demonstração).</p>}
           </div>
-          <Link to="/reservar" className="btn-primary mt-auto self-start pt-4 md:mt-10">Reservar mesa</Link>
+          <Link to="/reservar" className="btn-primary mt-10 self-start">Reservar mesa</Link>
         </div>
       </div>
     </div>
