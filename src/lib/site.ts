@@ -16,7 +16,7 @@ export const SITE = {
 };
 
 export const NAV = [
-  { to: "/carta", label: "A Carta" },
+  { to: "/menu", label: "O Nosso Menu" },
   { to: "/historia", label: "A Nossa História" },
   { to: "/experiencia", label: "A Experiência" },
   { to: "/contactos", label: "Contactos" },
