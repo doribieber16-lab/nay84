@@ -14,16 +14,233 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blocked_slots: {
+        Row: {
+          created_at: string
+          day: string
+          ends: string | null
+          id: string
+          reason: string | null
+          starts: string | null
+        }
+        Insert: {
+          created_at?: string
+          day: string
+          ends?: string | null
+          id?: string
+          reason?: string | null
+          starts?: string | null
+        }
+        Update: {
+          created_at?: string
+          day?: string
+          ends?: string | null
+          id?: string
+          reason?: string | null
+          starts?: string | null
+        }
+        Relationships: []
+      }
+      menu_categories: {
+        Row: {
+          id: string
+          name: string
+          position: number
+        }
+        Insert: {
+          id?: string
+          name: string
+          position?: number
+        }
+        Update: {
+          id?: string
+          name?: string
+          position?: number
+        }
+        Relationships: []
+      }
+      menu_items: {
+        Row: {
+          allergens: string[]
+          category_id: string
+          description: string | null
+          id: string
+          image_url: string | null
+          is_available: boolean
+          is_special: boolean
+          name: string
+          position: number
+          price_cents: number | null
+        }
+        Insert: {
+          allergens?: string[]
+          category_id: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_available?: boolean
+          is_special?: boolean
+          name: string
+          position?: number
+          price_cents?: number | null
+        }
+        Update: {
+          allergens?: string[]
+          category_id?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          is_available?: boolean
+          is_special?: boolean
+          name?: string
+          position?: number
+          price_cents?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "menu_items_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "menu_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      opening_hours: {
+        Row: {
+          closes: string
+          id: string
+          opens: string
+          weekday: number
+        }
+        Insert: {
+          closes: string
+          id?: string
+          opens: string
+          weekday: number
+        }
+        Update: {
+          closes?: string
+          id?: string
+          opens?: string
+          weekday?: number
+        }
+        Relationships: []
+      }
+      reservations: {
+        Row: {
+          created_at: string
+          day: string
+          email: string
+          id: string
+          name: string
+          notes: string | null
+          party: number
+          phone: string
+          privacy_accepted: boolean
+          slot: string
+          status: Database["public"]["Enums"]["reservation_status"]
+        }
+        Insert: {
+          created_at?: string
+          day: string
+          email: string
+          id?: string
+          name: string
+          notes?: string | null
+          party: number
+          phone: string
+          privacy_accepted: boolean
+          slot: string
+          status?: Database["public"]["Enums"]["reservation_status"]
+        }
+        Update: {
+          created_at?: string
+          day?: string
+          email?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          party?: number
+          phone?: string
+          privacy_accepted?: boolean
+          slot?: string
+          status?: Database["public"]["Enums"]["reservation_status"]
+        }
+        Relationships: []
+      }
+      restaurant_settings: {
+        Row: {
+          auto_confirm: boolean
+          id: number
+          last_seating_before_close_minutes: number
+          max_days_ahead: number
+          max_party: number
+          min_advance_minutes: number
+          seating_minutes: number
+          slot_minutes: number
+          total_seats: number
+        }
+        Insert: {
+          auto_confirm?: boolean
+          id?: number
+          last_seating_before_close_minutes?: number
+          max_days_ahead?: number
+          max_party?: number
+          min_advance_minutes?: number
+          seating_minutes?: number
+          slot_minutes?: number
+          total_seats?: number
+        }
+        Update: {
+          auto_confirm?: boolean
+          id?: number
+          last_seating_before_close_minutes?: number
+          max_days_ahead?: number
+          max_party?: number
+          min_advance_minutes?: number
+          seating_minutes?: number
+          slot_minutes?: number
+          total_seats?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      create_reservation: {
+        Args: {
+          _day: string
+          _email: string
+          _name: string
+          _notes: string
+          _party: number
+          _phone: string
+          _privacy: boolean
+          _slot: string
+        }
+        Returns: {
+          id: string
+          status: Database["public"]["Enums"]["reservation_status"]
+        }[]
+      }
+      get_available_slots: {
+        Args: { _day: string; _party: number }
+        Returns: {
+          available: boolean
+          slot: string
+        }[]
+      }
     }
     Enums: {
-      [_ in never]: never
+      reservation_status:
+        | "pendente"
+        | "confirmada"
+        | "cancelada"
+        | "concluida"
+        | "nao_compareceu"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +367,14 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      reservation_status: [
+        "pendente",
+        "confirmada",
+        "cancelada",
+        "concluida",
+        "nao_compareceu",
+      ],
+    },
   },
 } as const
