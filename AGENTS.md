@@ -15,3 +15,4 @@
 - Reservations and blocked slots have no anon/authenticated policies; only service_role touches them — guest data stays private until an admin area exists.
 - Menu is read from `menu_categories`/`menu_items` (public read) — content is edited in data, never hardcoded.
 - Shared institutional data (address, phone, hours, nav) lives in `src/lib/site.ts` — single source for header, footer and pages.
+- Keep the fixed mobile navigation outside backdrop-filter/transform containing blocks and independently scrollable — its opaque panel must cover the page at every viewport height.
